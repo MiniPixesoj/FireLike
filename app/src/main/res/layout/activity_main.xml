@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_scrollFlags="scroll|enterAlways"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.MainActivity"
+    android:id="@+id/root_view"
+    android:background="@color/bgColor">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_view_bg_activity_torrent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:background="@android:color/black"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_horizontal_ntb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_anchor="@+id/image_view_bg_activity_torrent"
+        app:layout_anchorGravity="center"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <LinearLayout
+        android:layout_gravity="bottom"
+        app:layout_behavior=".ui.views.BottomNavigationBehavior"
+        android:visibility="visible"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+        <nl.joery.animatedbottombar.AnimatedBottomBar
+            android:layout_gravity="bottom"
+            android:id="@+id/bottom_bar"
+            android:background="@color/bgColor"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:abb_selectedTabType="text"
+            app:abb_indicatorAppearance="round"
+            app:abb_indicatorMargin="16dp"
+            app:abb_indicatorHeight="4dp"
+            app:abb_tabs="@menu/list"
+            app:abb_tabColor="@color/textColor"
+            app:abb_indicatorColor="@color/primaryColor"
+            app:abb_tabColorSelected="@color/primaryColor"
+            app:abb_selectedIndex="0" />
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

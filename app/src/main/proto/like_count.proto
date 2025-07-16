@@ -1,0 +1,123 @@
+syntax = "proto3";
+
+option java_package = "com.pixesoj.freefirelike.proto";
+option java_outer_classname = "LikeCount";
+
+message Request {
+  uint64 uid = 1;
+  uint64 type = 2;
+}
+
+message Info {
+  AccountInfo accountInfo = 1;
+  ProfileInfo profileInfo = 2;
+  ClanInfo clanInfo = 6;
+  LeaderClanInfo leaderClanInfo = 7;
+  PetInfo petInfo = 8;
+  SocialInfo socialInfo = 9;
+
+  Test avatar = 10;
+  Test costume_info = 11;
+  string some_string = 15;
+}
+
+message AccountInfo {
+  uint64 uid = 1;
+  int32 accountType = 2;
+  string nickname = 3;
+  string region = 5;
+  int32 level = 6;
+  int32 exp = 7;
+  int32 iconId = 12;
+  int32 brPoints = 15;
+  int32 badgeId = 19;
+  int32 seasonId = 20;
+  int32 likes = 21;
+  int32 lastLogin = 24;
+  int32 pinId = 33;
+  Test test = 41;
+  int32 createAt = 44;
+  int32 title = 48;
+  Test test2 = 49;
+  Test test3 = 61;
+  Test3 test4 = 63;
+  Test test5 = 64;
+  AccountPrime prime = 76;
+  string releaseVersion = 50;
+}
+
+message AccountPrime {
+  int32 id = 1;
+  int32 level = 2;
+}
+
+message ClanInfo {
+  int32 id = 1;
+  string name = 2;
+  int32 leaderId = 3;
+  int32 level = 4;
+  int32 capacity = 5;
+  int32 members = 6;
+}
+
+message LeaderClanInfo {
+  uint64 uid = 1;
+  int32 accountType = 2;
+  string nickname = 3;
+  string region = 5;
+  int32 level = 6;
+  int32 exp = 7;
+  int32 iconId = 12;
+  int32 brPoints = 15;
+  int32 badgeId = 19;
+  int32 seasonId = 20;
+  int32 likes = 21;
+  int32 lastLogin = 24;
+  int32 pinId = 33;
+  Test test = 41;
+  int32 createAt = 44;
+  int32 title = 48;
+  Test test2 = 49;
+  Test test3 = 61;
+  Test3 test4 = 63;
+  Test test5 = 64;
+  AccountPrime prime = 76;
+  string releaseVersion = 50;
+}
+
+message SocialInfo {
+  int32 id = 1;
+  int32 genre = 2;
+  int32 language = 3;
+  int32 activeDays = 4;
+  int32 activeTime = 5;
+  int32 gameMode = 8;
+  string description = 9;
+  int32 rankShow = 10;
+}
+
+message PetInfo {
+  int32 id = 1;
+  string name = 2;
+  int32 level = 3;
+  int32 exp = 4;
+  int32 isSelected = 5;
+  int32 skinId = 6;
+  int32 selectedSkillId = 9;
+}
+
+message Test {
+
+}
+
+message ProfileInfo {
+  int32 avatarId = 1;
+}
+
+message Test3 {
+  Test test = 1;
+}
+
+message Wrapper {
+  Request request = 1;
+}

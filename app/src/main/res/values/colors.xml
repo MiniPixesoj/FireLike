@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray">#FF808080</color>
+
+    <color name="red">#FF6666</color>
+    <color name="darkRed">#CC0000</color>
+
+    <color name="textColor">#FFFFFFFF</color>
+    <color name="lightTextColor">#FFDDDDDD</color>
+    <color name="bgColor">#0e1223</color>
+    <color name="lightBgColor">#1C223C</color>
+    <color name="accentColor">#00e1bf</color>
+    <color name="primaryColor">#00e1bf</color>
+    <color name="link">#2196F3</color>
+
+
+    <color name="transparent">#000e1223</color>
+    <color name="transparent_90">#1A0E1223</color>
+    <color name="transparent_75">#400e1223</color>
+    <color name="transparent_50">#800e1223</color>
+    <color name="transparent_25">#BF0E1223</color>
+    <color name="transparent_10">#E60e1223</color>
+
+    <color name="xtransparent">#00FFFFFF</color>
+    <color name="xtransparent_90">#1AFFFFFF</color>
+    <color name="xtransparent_75">#40FFFFFF</color>
+    <color name="xtransparent_50">#80FFFFFF</color>
+    <color name="xtransparent_25">#BFFFFFFF</color>
+    <color name="xtransparent_10">#E6FFFFFF</color>
+    <color name="green">#01875f</color>
+
+</resources>

@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColor"
+    tools:context=".ui.fragments.LikesFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutLikesFragmentMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutLikesFragmentEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationViewFragmentInfoStatus"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/ic_empty_ghost" />
+
+            <TextView
+                android:id="@+id/textResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:fontFamily="@font/baloo2_semibold"
+                android:textSize="18sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="Ingresa un ID en la sección info para hacer uso de esta herramienta."
+                android:layout_marginBottom="16dp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutLikesFragmentInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Free Fire Likes"
+                        android:textAllCaps="true"
+                        android:layout_marginStart="7dp"
+                        android:textColor="@color/textColor"
+                        android:layout_gravity="center"
+                        android:textSize="30sp"
+                        android:fontFamily="@font/baloo2_bold"
+                        android:layout_marginTop="24dp" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        app:lottie_loop="true"
+                        app:lottie_autoPlay="true"
+                        app:lottie_rawRes="@raw/ic_like"/>
+
+                    <TextView
+                        android:id="@+id/textTitleInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Información de la cuenta"
+                        android:textAllCaps="true"
+                        android:layout_marginStart="7dp"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_medium"
+                        android:layout_marginTop="24dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_card_white">
+
+                        <androidx.gridlayout.widget.GridLayout
+                            android:id="@+id/gridInfoTable"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            app:columnCount="2"
+                            app:rowCount="5">
+
+                            <TextView
+                                android:text="ID:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textId"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Nombre:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textName"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Region:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textRegion"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Likes:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textLikes"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Enviados hoy:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="Cargando..."
+                                android:id="@+id/textTodayLikes"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Total enviados:              "
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="Cargando..."
+                                android:id="@+id/textTotalLikes"
+                                style="@style/InfoValueStyle" />
+                        </androidx.gridlayout.widget.GridLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Enviar likes"
+                        android:textAllCaps="true"
+                        android:layout_marginStart="7dp"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_medium"
+                        android:layout_marginTop="24dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/bg_card_white"
+                        android:padding="4dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autoCompleteAmountLikes"
+                            android:layout_width="0dp"
+                            android:layout_height="43dp"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:hint="Cantidad de likes"
+                            android:maxLength="3"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="36dp"
+                            android:textColor="@color/textColor"
+                            android:textColorHint="#99FFFFFF"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="14sp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:visibility="gone"
+                        android:layout_marginBottom="16dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayoutProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_alignParentRight="true"
+                                android:visibility="visible"
+                                android:id="@+id/linearLayoutInfosProgress"
+                                android:padding="5dp"
+                                android:gravity="right"
+                                android:orientation="horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:ignore="RtlHardcoded">
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/textViewProgressInfo"
+                                        android:textStyle="bold"
+                                        android:textSize="15sp"
+                                        android:textColor="@android:color/white"
+                                        android:text="0/100"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="20dp"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <ProgressBar
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:id="@+id/progressActivityLikes"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:indeterminate="true" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btnSendLikes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_btn_accent"
+                        android:text="ENVIAR LIKES"
+                        android:textAllCaps="true"
+                        android:textColor="@color/bgColor"
+                        android:fontFamily="@font/baloo2_bold"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:textSize="17dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="2dp" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutInformacionGeneral"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:padding="10dp"
+                        android:background="@drawable/bg_btn_white_light">
+
+                        <TextView
+                            android:id="@+id/textTituloInformacion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Información general"
+                            android:textAllCaps="true"
+                            android:textColor="@color/textColor"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/baloo2_medium"
+                            android:layout_marginBottom="10dp" />
+
+                        <TextView
+                            android:id="@+id/infoItem1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1. Solo puedes enviar un máximo de 100 likes por día"
+                            android:textColor="@color/textColor"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/baloo2_regular"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:id="@+id/infoItem2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2. Este método es 100% seguro, y libre de cualquier prohibición, se usan cuentas reales por lo que es 100% legal."
+                            android:textColor="@color/textColor"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/baloo2_regular"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:id="@+id/infoItem3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3. No cierres la app durante el proceso."
+                            android:textColor="@color/textColor"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/baloo2_regular"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:id="@+id/infoItem4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4. Con el sistema de autolike puedes enviar likes automáticamente a un perfil. Simplemente, agrega tu cuenta a la lista de auto like y no tendrás que hacer nada más después (te enviaremos una notificación cuando los likes sean enviados)."
+                            android:textColor="@color/textColor"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/baloo2_regular"
+                            android:layout_marginBottom="6dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sistema de AutoLike"
+                        android:textAllCaps="true"
+                        android:layout_marginStart="7dp"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_medium"
+                        android:layout_marginTop="24dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_card_white">
+
+                        <androidx.gridlayout.widget.GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            app:columnCount="2"
+                            app:rowCount="5">
+
+                            <TextView
+                                android:text="Auto like:                         "
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textAutoLike"
+                                style="@style/InfoValueStyle" />
+                        </androidx.gridlayout.widget.GridLayout>
+
+                        <RelativeLayout
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/bg_menu_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp">
+
+                            <RelativeLayout
+                                android:id="@+id/relativeLayoutAutoLike"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/bg_label_purple"
+                                    android:padding="12dp"
+                                    app:srcCompat="@drawable/ic_like"
+                                    app:tint="@color/textColor" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="70dp"
+                                    android:layout_marginRight="70dp"
+                                    android:gravity="center_vertical"
+                                    android:padding="5dp"
+                                    android:text="Cuentas con AutoLike"
+                                    android:textColor="@color/textColor"
+                                    android:textStyle="bold" />
+                                <ImageView
+                                    app:tint="@color/textColor"
+                                    android:rotation="180"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_margin="10dp"
+                                    android:padding="12dp"
+                                    app:srcCompat="@drawable/ic_back"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"/>
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/btnAddAutoLike"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_btn_accent"
+                            android:text="AÑADIR A AUTOLIKE"
+                            android:textAllCaps="true"
+                            android:textColor="@color/bgColor"
+                            android:fontFamily="@font/baloo2_bold"
+                            android:padding="7dp"
+                            android:gravity="center"
+                            android:textSize="17dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="50dp"
+                        android:padding="10dp"
+                        android:background="@drawable/bg_btn_white_light">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Información de autolike"
+                            android:textAllCaps="true"
+                            android:textColor="@color/textColor"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/baloo2_medium"
+                            android:layout_marginBottom="10dp" />
+
+                        <TextView
+                            android:id="@+id/infoAutolikeItem1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1. El sistema de autolike envía automáticamente likes a tu perfil cada día."
+                            android:textColor="@color/textColor"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/baloo2_regular"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:id="@+id/infoAutolikeItem2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2. Se revisa constantemente si tu cuenta ya alcanzó el límite diario de likes."
+                            android:textColor="@color/textColor"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/baloo2_regular"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:id="@+id/infoAutolikeItem3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3. Si no has llegado al límite, se enviarán los likes de forma automática."
+                            android:textColor="@color/textColor"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/baloo2_regular"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:id="@+id/infoAutolikeItem4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4. Una vez que se envían, recibirás una notificación para que estés al tanto."
+                            android:textColor="@color/textColor"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/baloo2_regular"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:id="@+id/infoAutolikeItem5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5. Solo necesitas agregar tu cuenta a la lista de autolike y todo será automático."
+                            android:textColor="@color/textColor"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/baloo2_regular"
+                            android:layout_marginBottom="6dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

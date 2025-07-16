@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColor"
+    tools:context=".ui.fragments.LikesFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutInfoFragmentMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+
+        <ImageView
+            android:id="@+id/imageViewHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_ff"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/textViewPlayerIdLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID de jugador"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/textColor"
+            android:fontFamily="@font/baloo2_bold"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_btn_white_light2"
+            android:padding="4dp"
+            android:gravity="center_vertical" >
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompletePlayerId"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Introduce un ID"
+                android:maxLength="12"
+                android:paddingStart="12dp"
+                android:paddingEnd="36dp"
+                android:textColor="@color/textColor"
+                android:textColorHint="#99FFFFFF"
+                android:inputType="number" />
+
+            <ImageView
+                android:id="@+id/imageViewRecentAccounts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/ic_arrow_drop_down" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/accentColor"
+                android:text="Login"
+                android:textColor="@color/black"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="5dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="14sp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutInfoStatus"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="gone">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationViewFragmentInfoStatus"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"
+                android:visibility="visible"
+                app:lottie_rawRes="@raw/ic_empty_ghost"/>
+
+            <TextView
+                android:id="@+id/textResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:fontFamily="@font/baloo2_semibold"
+                android:textSize="18sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:visibility="visible"
+                android:layout_marginBottom="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutAccountList"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card_white">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerAccounts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    tools:listitem="@layout/item_account"
+                    android:background="@color/transparent" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:id="@+id/accountLinearLayoutInfoMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/accountLinearLayoutInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textTitleInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Información de la cuenta"
+                        android:textAllCaps="true"
+                        android:layout_marginStart="7dp"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_medium"
+                        android:layout_marginTop="24dp" />
+
+                    <LinearLayout
+                        android:background="@drawable/bg_card_white"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.gridlayout.widget.GridLayout
+                            android:id="@+id/gridInfoTable"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            app:columnCount="2"
+                            app:rowCount="5">
+
+                            <TextView
+                                android:text="ID:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textId"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Nombre:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textName"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Region:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textRegion"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Nivel:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textLevel"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Experiencia:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textExp"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Likes:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textLikes"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Nivel prime:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textPrimeLevel"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Pase booyah:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textBooyahPass"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Version:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textReleaseVersion"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Temporada:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textSeason"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Rango BR:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textBrRank"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Puntos BR:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textBrRankingPoints"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Rango maximo BR:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textBrMaxRank"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Rango DE:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCsRank"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Puntos DE:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCsRankingPoints"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Rango maximo DE:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCsMaxRank"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Puntos de honor:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textHonorPoints"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Fecha limite:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textEndTime"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Recompensas:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textRewardsStatus"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Ult conexion:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textLastLogin"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Fecha de creacion:     "
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCreateAt"
+                                style="@style/InfoValueStyle" />
+                        </androidx.gridlayout.widget.GridLayout>
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="3dp"
+                                app:cardPreventCornerOverlap="false"
+                                app:cardUseCompatPadding="false"
+                                android:clipChildren="true"
+                                android:clipToPadding="true"
+                                android:layout_gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/imageViewProfile"
+                                    android:layout_gravity="center"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:scaleType="centerCrop"
+                                    android:adjustViewBounds="true" />
+                            </androidx.cardview.widget.CardView>
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/lottieLoadingProfile"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_gravity="center"
+                                android:visibility="gone"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true"
+                                app:lottie_rawRes="@raw/ic_loading_v2" />
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/accountLinearLayoutSocialInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textSocialTitleInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Información social"
+                        android:textAllCaps="true"
+                        android:layout_marginStart="7dp"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_medium"
+                        android:layout_marginTop="24dp" />
+
+                    <androidx.gridlayout.widget.GridLayout
+                        android:id="@+id/gridSocialInfoTable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_card_white"
+                        android:padding="10dp"
+                        app:columnCount="2"
+                        app:rowCount="5">
+
+                        <TextView
+                            android:text="Genero:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textSocialGenre"
+                            style="@style/InfoValueStyle" />
+                        <TextView
+                            android:text="Idioma:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textSocialLanguage"
+                            style="@style/InfoValueStyle" />
+
+                        <TextView
+                            android:text="Dias activo:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textSocialActiveDays"
+                            style="@style/InfoValueStyle" />
+                        <TextView
+                            android:text="Tiempo activo:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textSocialActiveTime"
+                            style="@style/InfoValueStyle" />
+                        <TextView
+                            android:text="Modo de juego:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textSocialGameMode"
+                            style="@style/InfoValueStyle" />
+                        <TextView
+                            android:text="Descripcion:                  "
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textSocialDescription"
+                            style="@style/InfoValueStyle" />
+                    </androidx.gridlayout.widget.GridLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/accountLinearLayoutClanInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textClanTitleInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Información del clan"
+                        android:textAllCaps="true"
+                        android:layout_marginStart="7dp"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_medium"
+                        android:layout_marginTop="24dp" />
+
+                    <androidx.gridlayout.widget.GridLayout
+                        android:id="@+id/gridClanInfoTable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_card_white"
+                        android:padding="10dp"
+                        app:columnCount="2"
+                        app:rowCount="5">
+
+                        <TextView
+                            android:text="ID:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textClanId"
+                            style="@style/InfoValueStyle" />
+                        <TextView
+                            android:text="Nombre:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textClanName"
+                            style="@style/InfoValueStyle" />
+
+                        <TextView
+                            android:text="Lider ID:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textClanCaptainID"
+                            style="@style/InfoValueStyle" />
+                        <TextView
+                            android:text="Nivel:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textClanLevel"
+                            style="@style/InfoValueStyle" />
+                        <TextView
+                            android:text="Capacidad:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textClanCapacity"
+                            style="@style/InfoValueStyle" />
+                        <TextView
+                            android:text="Miembros:                      "
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textCaptainMembers"
+                            style="@style/InfoValueStyle" />
+                    </androidx.gridlayout.widget.GridLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/accountLinearLayoutCaptainInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textCaptainTitleInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Información del lider"
+                        android:textAllCaps="true"
+                        android:layout_marginStart="7dp"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_medium"
+                        android:layout_marginTop="24dp" />
+
+                    <LinearLayout
+                        android:background="@drawable/bg_card_white"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.gridlayout.widget.GridLayout
+                            android:id="@+id/gridCaptainInfoTable"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            app:columnCount="2"
+                            app:rowCount="5">
+
+                            <TextView
+                                android:text="ID:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainId"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Nombre:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainName"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Region:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainRegion"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Nivel:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainLevel"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Experiencia:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainExp"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Likes:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainLikes"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Nivel prime:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainPrimeLevel"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Pase booyah:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainBooyahPass"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Version:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainReleaseVersion"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Temporada:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainSeason"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Rango BR:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainBrRank"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Puntos BR:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainBrRankingPoints"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Rango maximo BR:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainBrMaxRank"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Rango DE:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainCsRank"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Puntos DE:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainCsRankingPoints"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Rango maximo DE:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainCsMaxRank"
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                style="@style/InfoValueStyle" />
+
+                            <TextView
+                                android:text="Ult conexion:"
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainLastLogin"
+                                style="@style/InfoValueStyle" />
+                            <TextView
+                                android:text="Fecha de creacion:     "
+                                style="@style/InfoKeyStyle" />
+                            <TextView
+                                android:text="..."
+                                android:id="@+id/textCaptainCreateAt"
+                                style="@style/InfoValueStyle" />
+                        </androidx.gridlayout.widget.GridLayout>
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="3dp"
+                                app:cardPreventCornerOverlap="false"
+                                app:cardUseCompatPadding="false"
+                                android:clipChildren="true"
+                                android:clipToPadding="true"
+                                android:layout_gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/imageViewCaptainProfile"
+                                    android:layout_gravity="center"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:scaleType="centerCrop"
+                                    android:adjustViewBounds="true" />
+                            </androidx.cardview.widget.CardView>
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/lottieLoadingCaptainProfile"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_gravity="center"
+                                android:visibility="gone"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true"
+                                app:lottie_rawRes="@raw/ic_loading_v2" />
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/accountLinearLayoutPetInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textPetTitleInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Información de la mascota"
+                        android:textAllCaps="true"
+                        android:layout_marginStart="7dp"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_medium"
+                        android:layout_marginTop="24dp" />
+
+                    <androidx.gridlayout.widget.GridLayout
+                        android:id="@+id/gridPetInfoTable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_card_white"
+                        android:padding="10dp"
+                        app:columnCount="2"
+                        app:rowCount="5">
+
+                        <TextView
+                            android:text="ID:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textPetId"
+                            style="@style/InfoValueStyle" />
+                        <TextView
+                            android:text="Nombre:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textPetName"
+                            style="@style/InfoValueStyle" />
+
+                        <TextView
+                            android:text="Nivel:"
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textPetLevel"
+                            style="@style/InfoValueStyle" />
+                        <TextView
+                            android:text="Experiencia:                    "
+                            style="@style/InfoKeyStyle" />
+                        <TextView
+                            android:text="..."
+                            android:id="@+id/textPetExp"
+                            style="@style/InfoValueStyle" />
+                    </androidx.gridlayout.widget.GridLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

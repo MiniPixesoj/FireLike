@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/info"
+        android:icon="@drawable/ic_info"
+        android:title="Info"
+        android:checked="true"
+        android:color="@color/accentColor"/>
+    <item
+        android:id="@+id/likes"
+        android:icon="@drawable/ic_like"
+        android:title="Likes"
+        android:color="@color/accentColor"/>
+    <item
+        android:id="@+id/prohibicion"
+        android:icon="@drawable/ic_prohibicion"
+        android:title="Prohibicion"
+        android:color="@color/accentColor"/>
+    <item
+        android:id="@+id/menu"
+        android:icon="@drawable/ic_menu"
+        android:title="Menu"
+        android:color="@color/accentColor"/>
+</menu>

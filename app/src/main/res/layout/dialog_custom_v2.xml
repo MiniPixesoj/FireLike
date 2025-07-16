@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linear_layout_dialog_custom_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:elevation="8dp">
+
+    <TextView
+        android:id="@+id/text_view_dialog_custom_title"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view_custom_dialog"
+        android:visibility="gone"
+        android:layout_width="220dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true" />
+
+    <TextView
+        android:id="@+id/text_view_dialog_custom_description"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_dialog_custom_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/checkbox_dialog_custom"
+            android:visibility="gone"
+            android:layout_width="33dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/textColor" />
+
+        <TextView
+            android:id="@+id/text_view_dialog_custom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/textColor"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_dialog_custom_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="7dp"/>
+</LinearLayout>

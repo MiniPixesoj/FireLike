@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColor"
+    tools:context=".ui.fragments.LikesFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBanFragmentMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutLikesFragmentEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationViewFragmentInfoStatus"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/ic_empty_ghost" />
+
+            <TextView
+                android:id="@+id/textResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:fontFamily="@font/baloo2_semibold"
+                android:textSize="18sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="Ingresa un ID en la sección info para hacer uso de esta herramienta."
+                android:layout_marginBottom="16dp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutLikesFragmentInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="50dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Verificar prohibicion"
+                    android:textAllCaps="true"
+                    android:layout_marginStart="7dp"
+                    android:textColor="@color/textColor"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/baloo2_bold"
+                    android:layout_marginTop="24dp" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animationViewBanStatus"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    app:lottie_loop="true"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/ic_success_check"/>
+
+                <TextView
+                    android:id="@+id/textTitleInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Información de la cuenta"
+                    android:textAllCaps="true"
+                    android:layout_marginStart="7dp"
+                    android:textColor="@color/textColor"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/baloo2_medium"
+                    android:layout_marginTop="24dp" />
+
+                <androidx.gridlayout.widget.GridLayout
+                    android:id="@+id/gridInfoTable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_white"
+                    android:padding="10dp"
+                    app:columnCount="2"
+                    app:rowCount="5">
+
+                    <TextView
+                        android:text="ID:"
+                        style="@style/InfoKeyStyle" />
+                    <TextView
+                        android:text="..."
+                        android:id="@+id/textId"
+                        style="@style/InfoValueStyle" />
+
+                    <TextView
+                        android:text="Nombre:"
+                        style="@style/InfoKeyStyle" />
+                    <TextView
+                        android:text="..."
+                        android:id="@+id/textName"
+                        style="@style/InfoValueStyle" />
+
+                    <TextView
+                        android:text="Region:"
+                        style="@style/InfoKeyStyle" />
+                    <TextView
+                        android:text="..."
+                        android:id="@+id/textRegion"
+                        style="@style/InfoValueStyle" />
+
+                    <TextView
+                        style="@style/InfoKeyStyle" />
+                    <TextView
+                        style="@style/InfoValueStyle" />
+
+                    <TextView
+                        android:text="Estatus:"
+                        style="@style/InfoKeyStyle" />
+                    <TextView
+                        android:text="..."
+                        android:id="@+id/textStatus"
+                        style="@style/InfoValueStyle" />
+
+                    <TextView
+                        android:text="Periodo:                          "
+                        style="@style/InfoKeyStyle" />
+                    <TextView
+                        android:text="..."
+                        android:id="@+id/textPeriod"
+                        style="@style/InfoValueStyle" />
+                </androidx.gridlayout.widget.GridLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutInformacionBaneo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="32dp"
+                    android:padding="10dp"
+                    android:background="@drawable/bg_btn_white_light">
+
+                    <TextView
+                        android:id="@+id/textTituloBaneo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Información sobre baneos"
+                        android:textAllCaps="true"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_medium"
+                        android:layout_marginBottom="10dp" />
+
+                    <TextView
+                        android:id="@+id/baneoItem1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1. Esta herramienta solo consulta si el jugador ha sido baneado."
+                        android:textColor="@color/textColor"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/baloo2_regular"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:id="@+id/baneoItem2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2. No garantiza que el jugador no sea baneado en el futuro."
+                        android:textColor="@color/textColor"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/baloo2_regular"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:id="@+id/baneoItem3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3. La información se obtiene directamente de los servidores oficiales de Free Fire."
+                        android:textColor="@color/textColor"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/baloo2_regular"
+                        android:layout_marginBottom="6dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

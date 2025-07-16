@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColor"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutActionBar"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            tools:ignore="UselessParent">
+
+            <LinearLayout
+                android:id="@+id/action_bar_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_label">
+
+                    <ImageView
+                        android:id="@+id/imageViewActionBarBack"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="7dp"
+                        app:srcCompat="@drawable/ic_back"
+                        app:tint="@color/textColor" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_view_action_bar_title"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="50dp"
+                android:gravity="left|center"
+                android:text="Ajustes"
+                android:textColor="@color/textColor"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp">
+
+            <LinearLayout
+                android:id="@+id/linear_layout_f_menu_sign_in"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:visibility="visible">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animation_view"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    app:lottie_rawRes="@raw/ic_settings"
+                    app:lottie_loop="true"
+                    app:lottie_autoPlay="true"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AJUSTES DE LA APLICACION"
+                android:fontFamily="@font/baloo2_regular"
+                android:textColor="@color/lightTextColor"
+                android:textSize="14sp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_menu_item"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text="Notificaciones"
+                            android:textColor="@color/textColor"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/baloo2_semibold"
+                            tools:ignore="RtlHardcoded" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text="Recibe notificaciones sobre novedades y herramientas de FireLike."
+                            android:textColor="@color/lightTextColor"
+                            android:textSize="13sp"
+                            tools:ignore="RtlHardcoded"
+                            android:layout_marginEnd="55dp"/>
+                    </LinearLayout>
+
+                    <Switch
+                        android:id="@+id/switchButtonNotifications"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/bg_menu_item"
+                        android:checked="true"
+                        android:gravity="center"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/gray" />
+
+                <RelativeLayout
+                    android:id="@+id/relative_layout_app_lang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text="Idioma de la aplicacion"
+                            android:textColor="@color/textColor"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/baloo2_semibold"
+                            tools:ignore="RtlHardcoded" />
+
+                        <TextView
+                            android:id="@+id/text_view_lang_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text="Español"
+                            android:textColor="@color/lightTextColor"
+                            android:textSize="13sp"
+                            tools:ignore="RtlHardcoded" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/gray" />
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayoutDeletedCache"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text="Limpiar caché"
+                            android:textColor="@color/textColor"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/baloo2_semibold"
+                            tools:ignore="RtlHardcoded" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text="Elimina caché acumulado."
+                            android:textColor="@color/lightTextColor"
+                            android:textSize="13sp"
+                            tools:ignore="RtlHardcoded" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

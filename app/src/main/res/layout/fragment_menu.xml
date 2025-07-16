@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColor"
+    tools:context=".ui.fragments.MenuFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutInfoFragmentMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:background="@drawable/bg_label_primary"
+                        android:padding="20dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_menu"
+                        app:tint="@color/bgColor" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative_layout_f_menu_settings_item_container"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_menu_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayoutMenuSettingsItem"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/bg_label_red"
+                            android:padding="12dp"
+                            app:srcCompat="@drawable/ic_settings"
+                            app:tint="@color/textColor" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginRight="70dp"
+                            android:gravity="center_vertical"
+                            android:padding="5dp"
+                            android:text="Ajustes"
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold" />
+                        <ImageView
+                            app:tint="@color/textColor"
+                            android:rotation="180"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="10dp"
+                            android:padding="12dp"
+                            app:srcCompat="@drawable/ic_back"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_menu_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+                    <RelativeLayout
+                        android:id="@+id/relativeLayoutClickableMenuContactItem"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/bg_label_green"
+                            android:padding="12dp"
+                            app:srcCompat="@drawable/ic_message"
+                            app:tint="@color/textColor" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginRight="70dp"
+                            android:gravity="center_vertical"
+                            android:padding="5dp"
+                            android:text="Ayuda"
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold" />
+                        <ImageView
+                            app:tint="@color/textColor"
+                            android:rotation="180"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="10dp"
+                            android:padding="12dp"
+                            app:srcCompat="@drawable/ic_back"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_menu_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayoutClickableMenuAutoLikeItem"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/bg_label_purple"
+                            android:padding="12dp"
+                            app:srcCompat="@drawable/ic_like"
+                            app:tint="@color/textColor" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginRight="70dp"
+                            android:gravity="center_vertical"
+                            android:padding="5dp"
+                            android:text="Auto like"
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold" />
+                        <ImageView
+                            app:tint="@color/textColor"
+                            android:rotation="180"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="10dp"
+                            android:padding="12dp"
+                            app:srcCompat="@drawable/ic_back"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_menu_item">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/bg_label_yellow"
+                            android:padding="12dp"
+                            app:srcCompat="@drawable/ic_info"
+                            app:tint="@color/textColor" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginRight="70dp"
+                            android:gravity="center_vertical"
+                            android:padding="5dp"
+                            android:text="Versión"
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textViewFragmentMenuVersion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center"
+                            android:text="v1.02 (b2883)"
+                            android:textColor="@color/textColor" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>
