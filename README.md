@@ -35,7 +35,7 @@ Todo el sistema funciona con APIs públicas, sin riesgo de baneos. FireLike **no
 
 ## 📦 Descargar APK
 
-👉 [DESCARGAR](https://github.com/MiniPixesoj/FireLike/releases/download/1.0.0/app-release.apk)
+👉 [DESCARGAR](https://github.com/MiniPixesoj/FireLike/releases/latest/download/app-release.apk)
 
 ---
 
