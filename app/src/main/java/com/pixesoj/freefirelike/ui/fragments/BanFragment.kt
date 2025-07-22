@@ -16,6 +16,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.pixesoj.freefirelike.R
+import com.pixesoj.freefirelike.config.GlobalConfig
 import com.pixesoj.freefirelike.manager.AccountManager
 import com.pixesoj.freefirelike.manager.ApiManager
 import com.pixesoj.freefirelike.manager.ApiManager.ApiCallback
@@ -98,7 +99,7 @@ class BanFragment : Fragment() {
             linearLayoutLikesFragmentInfo?.visibility = View.GONE
 
             checkID = account!!.uid
-            val url = "https://api-check-ban.vercel.app/check_ban/${account!!.uid}"
+            val url = GlobalConfig.API_CHECK_BAN_URL + "check_ban/${account!!.uid}"
             ApiManager.get(context, url, null, 15, 1, object : ApiCallback {
                 override fun onSuccess(responseBody: String?, responseElement: JsonElement?) {
                     responseElement?.asJsonObject?.let { json ->

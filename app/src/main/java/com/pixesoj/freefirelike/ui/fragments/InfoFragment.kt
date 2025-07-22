@@ -27,6 +27,7 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.pixesoj.freefirelike.R
+import com.pixesoj.freefirelike.config.GlobalConfig
 import com.pixesoj.freefirelike.manager.AccountManager
 import com.pixesoj.freefirelike.manager.ApiManager
 import com.pixesoj.freefirelike.manager.ApiManager.ApiCallback
@@ -34,9 +35,6 @@ import com.pixesoj.freefirelike.manager.TokenManager
 import com.pixesoj.freefirelike.model.Account
 import com.pixesoj.freefirelike.ui.adapters.AccountAdapter
 import com.pixesoj.freefirelike.utils.HelperUtils
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
-import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
 import okhttp3.Call
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -125,6 +123,7 @@ class InfoFragment : Fragment() {
                 animation?.let { it1 -> setAnimation(it1, R.raw.ic_loading) }
                 linearLayoutInfoStatus?.visibility = View.VISIBLE
                 accountInfoLayout?.visibility = View.GONE
+                linearLayoutAccountList?.visibility = View.GONE
                 fetchPlayerInfo()
             }
         }
@@ -225,7 +224,7 @@ class InfoFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun fetchPlayerInfo() {
-        val url = "https://glob-info.vercel.app/info?uid=$uid"
+        val url = GlobalConfig.API_INFO_URL + "info?uid=$uid"
         ApiManager.get(context, url, null, 10, 3, object : ApiCallback {
             override fun onSuccess(responseBody: String, responseElement: JsonElement?) {
                 println("✅ Respuesta completa: $responseBody")
@@ -333,7 +332,7 @@ class InfoFragment : Fragment() {
                     if (basicInfo != null){
                         activity?.let {
                             it.runOnUiThread {
-                                downloadAndSetImage("https://genprofile.vercel.app/generate?uid=$uid", imageViewProfile!!, lottieLoadingProfile!!)
+                                downloadAndSetImage(GlobalConfig.API_GEN_URL + "generate?uid=$uid", imageViewProfile!!, lottieLoadingProfile!!)
 
                                 initRecentAccounts()
                                 animation?.visibility = View.GONE
@@ -461,8 +460,7 @@ class InfoFragment : Fragment() {
                                     val textCaptainLastLogin = view?.findViewById<TextView>(R.id.textCaptainLastLogin)
                                     val textCaptainCreateAt = view?.findViewById<TextView>(R.id.textCaptainCreateAt)
 
-                                    downloadAndSetImage("https://genprofile.vercel.app/generate?uid=$captainId", imageViewCaptainProfile!!, lottieLoadingCaptainProfile!!)
-                                    Log.d("Test image", "https://genprofile.vercel.app/generate?uid=$captainId")
+                                    downloadAndSetImage(GlobalConfig.API_GEN_URL + "generate?uid=$captainId", imageViewCaptainProfile!!, lottieLoadingCaptainProfile!!)
                                     textCaptainId?.text = captainId
                                     textCaptainName?.text = captainNickname
                                     textCaptainRegion?.text = HelperUtils.getRegionName(captainRegion)
@@ -590,7 +588,13 @@ class InfoFragment : Fragment() {
         this.accountInfoLayout?.visibility = View.GONE
     }
 
-    fun downloadAndSetImage(url: String, imageView: ImageView, lottieLoadingProfile: LottieAnimationView) {
+    fun downloadAndSetImage(
+        url: String,
+        imageView: ImageView,
+        lottieLoadingProfile: LottieAnimationView
+    ) {
+        val freshUrl = url
+
         val client = OkHttpClient.Builder()
             .connectTimeout(10, TimeUnit.SECONDS)
             .readTimeout(10, TimeUnit.SECONDS)
@@ -598,16 +602,17 @@ class InfoFragment : Fragment() {
             .build()
 
         (imageView.context as Activity).runOnUiThread {
+            imageView.setImageDrawable(null)
             lottieLoadingProfile.visibility = View.VISIBLE
         }
 
         val request = Request.Builder()
-            .url(url)
+            .url(freshUrl)
+            .header("Cache-Control", "no-cache")
             .build()
 
         client.newCall(request).enqueue(object : okhttp3.Callback {
             override fun onFailure(call: Call, e: IOException) {
-                Log.d("Image", "Error: ${e.message}")
                 (imageView.context as Activity).runOnUiThread {
                     lottieLoadingProfile.visibility = View.GONE
                 }
@@ -622,7 +627,6 @@ class InfoFragment : Fragment() {
                         lottieLoadingProfile.visibility = View.GONE
                     }
                 } else {
-                    Log.d("Image", "Respuesta no exitosa: ${response.code}")
                     (imageView.context as Activity).runOnUiThread {
                         lottieLoadingProfile.visibility = View.GONE
                     }

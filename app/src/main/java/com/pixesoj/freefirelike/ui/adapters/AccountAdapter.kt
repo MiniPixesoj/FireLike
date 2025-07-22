@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pixesoj.freefirelike.R
+import com.pixesoj.freefirelike.config.GlobalConfig
 import com.pixesoj.freefirelike.model.Account
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
@@ -44,9 +45,8 @@ class AccountAdapter(
         Log.d("Test", avatarId)
         if (avatarId.isNotEmpty() && avatarId != "0"){
             Log.d("Test", "No esta vacio")
-            Log.d("Url", "https://genitems.vercel.app/api/openitems?id=${account.avatarId}")
             Picasso.get()
-                .load("https://genitems.vercel.app/api/openitems?id=${account.avatarId}")
+                .load(GlobalConfig.API_GEN_URL + "api/openitems?id=${account.avatarId}")
                 .placeholder(R.drawable.icon_ff)
                 .fit()
                 .centerCrop()

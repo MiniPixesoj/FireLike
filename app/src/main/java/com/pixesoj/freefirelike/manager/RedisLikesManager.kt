@@ -1,6 +1,7 @@
 package com.pixesoj.freefirelike.manager
 
 import android.util.Log
+import com.pixesoj.freefirelike.config.GlobalConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaType
@@ -14,8 +15,8 @@ import java.util.Locale
 
 object RedisLikesManager {
 
-    private const val redisBaseUrl = "https://quick-doe-23866.upstash.io"
-    private const val redisToken = "Bearer AV06AAIjcDFkNzE5MTUxNzM0ZTM0YmQ1OTIyN2M0ZjU5ZjBiNzVhZXAxMA"
+    private const val redisBaseUrl = GlobalConfig.REDIS_URL
+    private const val redisToken = "Bearer ${GlobalConfig.REDIS_KEY}"
     private val client = OkHttpClient()
     private val jsonMedia = "application/json".toMediaType()
 

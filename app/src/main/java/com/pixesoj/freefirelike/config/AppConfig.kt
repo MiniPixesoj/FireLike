@@ -35,5 +35,13 @@ class AppConfig {
         fun setUpdateAvailable(value: Boolean) {
             Hawk.put<Boolean?>("APP_VALUE_UPDATE_AVAILABLE", value)
         }
+
+        fun getKey(): String? {
+            return Hawk.get<String?>("APP_VALUE_KEY", "")
+        }
+
+        fun setKey(value: String?) {
+            Hawk.put<String?>("APP_VALUE_KEY", value)
+        }
     }
 }

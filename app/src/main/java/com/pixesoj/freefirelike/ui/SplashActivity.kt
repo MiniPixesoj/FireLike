@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.JsonElement
 import com.pixesoj.freefirelike.R
 import com.pixesoj.freefirelike.config.AppConfig
+import com.pixesoj.freefirelike.config.GlobalConfig
 import com.pixesoj.freefirelike.manager.ApiManager
 import com.pixesoj.freefirelike.manager.ApiManager.ApiCallback
 import com.pixesoj.freefirelike.utils.AppUtils
@@ -24,7 +25,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        ApiManager.get(this, "https://api-firelike.pixesoj.com/config", null, 15, 1, object : ApiCallback {
+        ApiManager.get(this, GlobalConfig.API_BASE_URL + "config", null, 15, 1, object : ApiCallback {
             override fun onSuccess(responseBody: String?, responseElement: JsonElement?) {
                 responseElement?.asJsonObject?.let { json ->
                     val status = json.get("status")?.asString ?: "error"

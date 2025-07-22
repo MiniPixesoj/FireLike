@@ -14,6 +14,7 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.pixesoj.freefirelike.R
+import com.pixesoj.freefirelike.config.GlobalConfig
 import com.pixesoj.freefirelike.manager.AccountManager
 import com.pixesoj.freefirelike.manager.ApiManager
 import com.pixesoj.freefirelike.manager.ApiManager.ApiCallback
@@ -47,7 +48,7 @@ class NotificationWorker(appContext: Context, workerParams: WorkerParameters) :
         for (account in autoLikesAccounts!!) {
             try {
                 val nowTimestamp = System.currentTimeMillis() / 1000
-                val checkTimeUrl = "https://api-firelike.pixesoj.com/check-time/${account.uid}/$nowTimestamp"
+                val checkTimeUrl = GlobalConfig.API_BASE_URL + "check-time/${account.uid}/$nowTimestamp"
                 val checkResponse = apiGetSuspend(checkTimeUrl)
                 val passed = checkResponse?.asJsonObject?.get("passed_time")?.asBoolean == true
 
@@ -62,7 +63,7 @@ class NotificationWorker(appContext: Context, workerParams: WorkerParameters) :
                     }
 
                     sendNotificationWithProgress(account, "Enviando likes...", "Procesando solicitud para ${account.username}")
-                    val url = "https://glob-info.vercel.app/info?uid=${account.uid}"
+                    val url = GlobalConfig.API_INFO_URL + "info?uid=${account.uid}"
                     val jsonBefore = apiGetSuspend(url)
 
                     val basicInfoBefore = jsonBefore?.asJsonObject?.getAsJsonObject("basicInfo")
@@ -99,7 +100,7 @@ class NotificationWorker(appContext: Context, workerParams: WorkerParameters) :
 
                     val likesAdded = liked - likesBefore
 
-                    ApiManager.get(context, "https://api-firelike.pixesoj.com/add-likes/${account.uid}/$likesAdded/" + (System.currentTimeMillis() / 1000).toString(), null, 15, 1, object : ApiCallback {
+                    ApiManager.get(context, GlobalConfig.API_BASE_URL + "add-likes/${account.uid}/$likesAdded/" + (System.currentTimeMillis() / 1000).toString(), null, 15, 1, object : ApiCallback {
                         override fun onSuccess(responseBody: String?, responseElement: JsonElement?) {
                             responseElement?.asJsonObject?.let { json ->
                                 val status = json.get("status").asString
@@ -292,7 +293,7 @@ class NotificationWorker(appContext: Context, workerParams: WorkerParameters) :
         loopTokens.forEachIndexed { index, token ->
             try {
                 val request = Request.Builder()
-                    .url("https://client.us.freefiremobile.com/LikeProfile")
+                    .url(GlobalConfig.API_FF_CLIENT_URL + "LikeProfile")
                     .post(encryptedPayload.toRequestBody("application/x-www-form-urlencoded".toMediaTypeOrNull()))
                     .header("User-Agent", "Dalvik/2.1.0 (Linux; U; Android 9; ASUS_Z01QD Build/PI)")
                     .header("Connection", "Keep-Alive")

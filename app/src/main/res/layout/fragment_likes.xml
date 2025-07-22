@@ -63,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -166,114 +166,394 @@
                         </androidx.gridlayout.widget.GridLayout>
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Enviar likes"
-                        android:textAllCaps="true"
-                        android:layout_marginStart="7dp"
-                        android:textColor="@color/textColor"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/baloo2_medium"
-                        android:layout_marginTop="24dp" />
-
                     <LinearLayout
+                        android:id="@+id/linearLayoutKeyInfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@drawable/bg_card_white"
-                        android:padding="4dp"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="10dp">
+                        android:orientation="vertical">
 
-                        <AutoCompleteTextView
-                            android:id="@+id/autoCompleteAmountLikes"
-                            android:layout_width="0dp"
-                            android:layout_height="43dp"
-                            android:layout_weight="1"
-                            android:background="@android:color/transparent"
-                            android:hint="Cantidad de likes"
-                            android:maxLength="3"
-                            android:paddingStart="12dp"
-                            android:paddingEnd="36dp"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Información de la key"
+                            android:textAllCaps="true"
+                            android:layout_marginStart="7dp"
                             android:textColor="@color/textColor"
-                            android:textColorHint="#99FFFFFF"
-                            android:inputType="number" />
-                    </LinearLayout>
+                            android:textSize="16sp"
+                            android:fontFamily="@font/baloo2_medium"
+                            android:layout_marginTop="24dp" />
 
-                    <TextView
-                        android:id="@+id/textStatus"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/holo_red_light"
-                        android:textSize="14sp"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="16dp"/>
-
-                    <LinearLayout
-                        android:id="@+id/LinearLayoutProgressBar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:visibility="gone" >
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <LinearLayout
-                                android:layout_alignParentRight="true"
-                                android:visibility="visible"
-                                android:id="@+id/linearLayoutInfosProgress"
-                                android:padding="5dp"
-                                android:gravity="right"
-                                android:orientation="horizontal"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                tools:ignore="RtlHardcoded">
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
-                                    <TextView
-                                        android:id="@+id/textViewProgressInfo"
-                                        android:textStyle="bold"
-                                        android:textSize="15sp"
-                                        android:textColor="@android:color/white"
-                                        android:text="0/100"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="20dp"/>
-                                </LinearLayout>
-                            </LinearLayout>
-                        </RelativeLayout>
-
-                        <ProgressBar
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:id="@+id/progressActivityLikes"
-                            style="?android:attr/progressBarStyleHorizontal"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:indeterminate="true" />
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_card_white">
+
+                            <androidx.gridlayout.widget.GridLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                app:columnCount="2"
+                                app:rowCount="5">
+
+                                <TextView
+                                    android:text="Key:"
+                                    style="@style/InfoKeyStyle" />
+                                <TextView
+                                    android:text="..."
+                                    android:id="@+id/textKey"
+                                    style="@style/InfoValueStyle" />
+
+                                <TextView
+                                    android:text="Usos totales:"
+                                    style="@style/InfoKeyStyle" />
+                                <TextView
+                                    android:text="..."
+                                    android:id="@+id/textUses"
+                                    style="@style/InfoValueStyle" />
+
+                                <TextView
+                                    android:text="Usos restantes:"
+                                    style="@style/InfoKeyStyle" />
+                                <TextView
+                                    android:text="..."
+                                    android:id="@+id/textRemainingUses"
+                                    style="@style/InfoValueStyle" />
+
+                                <TextView
+                                    style="@style/InfoKeyStyle" />
+                                <TextView
+                                    style="@style/InfoValueStyle" />
+
+                                <TextView
+                                    android:text="Usos (hoy):"
+                                    style="@style/InfoKeyStyle" />
+                                <TextView
+                                    android:text="..."
+                                    android:id="@+id/textTodayUses"
+                                    style="@style/InfoValueStyle" />
+
+                                <TextView
+                                    android:text="Usos restantes (hoy):"
+                                    style="@style/InfoKeyStyle" />
+                                <TextView
+                                    android:text="..."
+                                    android:id="@+id/textRemainingTodayUses"
+                                    style="@style/InfoValueStyle" />
+
+                                <TextView
+                                    android:text="Autolike:                            "
+                                    style="@style/InfoKeyStyle" />
+                                <TextView
+                                    android:text="..."
+                                    android:id="@+id/textAutoLikeKey"
+                                    style="@style/InfoValueStyle" />
+                                <TextView
+                                    android:text="Cantidad de AutoLike:"
+                                    style="@style/InfoKeyStyle" />
+                                <TextView
+                                    android:text="..."
+                                    android:id="@+id/textAutoLikeAmount"
+                                    style="@style/InfoValueStyle" />
+                            </androidx.gridlayout.widget.GridLayout>
+
+                            <LinearLayout
+                                android:id="@+id/linearLayoutKeyNoCanUse"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="Tu key ha alcanzado el límite de usos por día o el límite de usos totales, adquiere otra key o espera hasta mañana si es que aplica."
+                                    android:layout_margin="5dp"
+                                    android:textColor="@color/red"
+                                    android:textSize="15sp"
+                                    android:fontFamily="@font/baloo2_regular"
+                                    android:layout_marginTop="18dp" />
+
+                                <TextView
+                                    android:id="@+id/textViewGetKey"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="Obtener key"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp"
+                                    android:fontFamily="@font/baloo2_medium"
+                                    android:background="@drawable/bg_btn_info"
+                                    android:layout_marginTop="18dp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/textViewChangeKey"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Cambiar key"
+                                android:textAllCaps="true"
+                                android:textColor="@color/primaryColor"
+                                android:textSize="16sp"
+                                android:fontFamily="@font/baloo2_regular"
+                                android:layout_marginTop="18dp" />
+                        </LinearLayout>
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/btnSendLikes"
+                    <LinearLayout
+                        android:id="@+id/linearLayoutKeyButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_btn_accent"
-                        android:text="ENVIAR LIKES"
-                        android:textAllCaps="true"
-                        android:textColor="@color/bgColor"
-                        android:fontFamily="@font/baloo2_bold"
-                        android:padding="10dp"
-                        android:gravity="center"
-                        android:textSize="17dp"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginEnd="2dp" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Key"
+                            android:textAllCaps="true"
+                            android:layout_marginStart="7dp"
+                            android:textColor="@color/textColor"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/baloo2_medium"
+                            android:layout_marginTop="24dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bg_card_white"
+                            android:padding="4dp"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="10dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/autoCompleteKey"
+                                android:layout_width="0dp"
+                                android:layout_height="43dp"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:hint="Ingresa una key"
+                                android:maxLength="16"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="36dp"
+                                android:textColor="@color/textColor"
+                                android:textColorHint="#99FFFFFF"
+                                android:inputType="text" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textKeyStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/holo_red_light"
+                            android:textSize="14sp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:visibility="gone"
+                            android:layout_marginBottom="16dp"/>
+
+                        <LinearLayout
+                            android:id="@+id/LinearLayoutProgressBarKey"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone" >
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_alignParentRight="true"
+                                    android:visibility="visible"
+                                    android:id="@+id/linearLayoutInfosProgressKey"
+                                    android:padding="5dp"
+                                    android:gravity="right"
+                                    android:orientation="horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="RtlHardcoded">
+
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+                                        <TextView
+                                            android:id="@+id/textViewProgressInfoKey"
+                                            android:textStyle="bold"
+                                            android:textSize="15sp"
+                                            android:textColor="@android:color/white"
+                                            android:text="0/100"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="20dp"/>
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </RelativeLayout>
+
+                            <ProgressBar
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/progressActivityKey"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:indeterminate="true" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btnCheckKey"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_btn_accent"
+                            android:text="VERIFICAR KEY"
+                            android:textAllCaps="true"
+                            android:textColor="@color/bgColor"
+                            android:fontFamily="@font/baloo2_bold"
+                            android:padding="10dp"
+                            android:gravity="center"
+                            android:textSize="17sp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp" />
+
+                        <TextView
+                            android:id="@+id/textViewGetKey2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Obtener key"
+                            android:textAllCaps="true"
+                            android:textColor="@color/primaryColor"
+                            android:textSize="16sp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:fontFamily="@font/baloo2_medium"
+                            android:layout_marginTop="18dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutLikeButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enviar likes"
+                            android:textAllCaps="true"
+                            android:layout_marginStart="7dp"
+                            android:textColor="@color/textColor"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/baloo2_medium"
+                            android:layout_marginTop="24dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bg_card_white"
+                            android:padding="4dp"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="10dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/autoCompleteAmountLikes"
+                                android:layout_width="0dp"
+                                android:layout_height="43dp"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:hint="Cantidad de likes"
+                                android:maxLength="3"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="36dp"
+                                android:textColor="@color/textColor"
+                                android:textColorHint="#99FFFFFF"
+                                android:inputType="number" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/holo_red_light"
+                            android:textSize="14sp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:visibility="gone"
+                            android:layout_marginBottom="16dp"/>
+
+                        <LinearLayout
+                            android:id="@+id/LinearLayoutProgressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone" >
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_alignParentRight="true"
+                                    android:visibility="visible"
+                                    android:id="@+id/linearLayoutInfosProgress"
+                                    android:padding="5dp"
+                                    android:gravity="right"
+                                    android:orientation="horizontal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="RtlHardcoded">
+
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+                                        <TextView
+                                            android:id="@+id/textViewProgressInfo"
+                                            android:textStyle="bold"
+                                            android:textSize="15sp"
+                                            android:textColor="@android:color/white"
+                                            android:text="0/100"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="20dp"/>
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </RelativeLayout>
+
+                            <ProgressBar
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/progressActivityLikes"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:indeterminate="true" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btnSendLikes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_btn_accent"
+                            android:text="ENVIAR LIKES"
+                            android:textAllCaps="true"
+                            android:textColor="@color/bgColor"
+                            android:fontFamily="@font/baloo2_bold"
+                            android:padding="10dp"
+                            android:gravity="center"
+                            android:textSize="17dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp" />
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/layoutInformacionGeneral"
@@ -433,7 +713,8 @@
                             android:textSize="17dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginStart="10dp"
-                            android:layout_marginEnd="10dp" />
+                            android:layout_marginEnd="10dp"
+                            android:visibility="gone"/>
                     </LinearLayout>
 
                     <LinearLayout
