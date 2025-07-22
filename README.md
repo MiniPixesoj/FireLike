@@ -1,86 +1,89 @@
 # FireLike
 
-**FireLike** is an advanced tool for **Garena Free Fire** players, designed to offer **complete profile information** and the ability to **send automatic likes safely and legally**.
+**FireLike** is an advanced tool for **Garena Free Fire** players, designed to provide **complete profile information** and the ability to **send automatic likes safely and legally**.
 
 ## How does it work?
 
-You just need to enter the **player ID** in the app. From there, FireLike accesses public data and displays, within seconds:
+You just need to enter the player's **ID** in the app. From there, FireLike accesses public information and shows you in seconds:
 
 - ✅ Player name, badges, clan, and level  
-- ✅ **Booyah Pass** details: whether it was purchased or claimed  
+- ✅ Details of the **Booyah Pass**: whether it was purchased or claimed  
 - ✅ Account creation date  
-- ✅ Last connection  
-- ✅ **Clan leader** info, clan ID, member count  
-- ✅ Player status: has the player been **banned**? Since when?  
-- ✅ Visual equipment: clothing, active skins, etc.  
-- ✅ Equipped **pet** data  
-- ✅ Current **likes count** on the profile  
+- ✅ Last online time  
+- ✅ Information about the **clan leader**, clan ID, and number of members  
+- ✅ Player status: Was the player **banned**? Since when?  
+- ✅ Visual equipment: clothes, active skins, etc.  
+- ✅ Equipped **pet** details  
+- ✅ Current **likes** count on the profile  
 
 ---
 
 ## 🚀 Automatic Likes
 
-FireLike's main feature is to **send likes to any player's profile**. This is done via a **100% legal automated system**:
+The main feature of FireLike is to **send likes to any player's profile**. This works through a system that is **automated but 100% legal**:
 
-- Likes are sent from **real accounts**, each created individually  
-- Free Fire **only allows 100 likes per profile per day**, so once the limit is reached, you must wait 24 hours to send again  
-- The system ensures **compliance with official limits**, avoiding any risk of penalties  
-- Every action is transparent: you can see results in real time from the app
+- Likes are sent from **real accounts** created individually  
+- Free Fire **only allows 100 likes per profile per day**, so once the limit is reached, you must wait 24 hours to send more  
+- The system ensures compliance with **official limits**, avoiding any risk of penalties  
+- Every action is transparent: you can see the results in real time from the app  
+- **The likes feature requires an API key**, which you can get for free in our Discord server (see Contributions section)
 
 ---
 
 ## ⚙️ Key Features
 
-- 🔥 **Legal automatic likes**, respecting Free Fire's limits  
-- 🛡️ **Ban detection**, including ban date and duration  
-- 📊 Full **player statistics** display  
-- 🧠 Smart data collection, without private APIs  
-- 🐾 Detailed info about **pets, clans, and leaders**  
+- 🔥 **Automatic and legal likes**, respecting Free Fire's limits  
+- 🛡️ Detection of **banned accounts**, with ban date and duration  
+- 📊 Display of **complete player statistics**  
+- 🧠 Smart data gathering without private APIs  
+- 🐾 Detailed information on **pets, clans, and leaders**  
 - 🎨 Modern, lightweight UI with smooth animations  
-- 📱 **Exclusive Android support**
+- 📱 **Android-exclusive compatibility**
 
 ---
 
 ## 📦 Built With
 
-FireLike is developed using modern, stable, performance-focused technologies:
+FireLike is developed using modern, stable, and performance-focused technologies:
 
 - **Mobile frontend**: [Java](https://www.java.com) and [Kotlin](https://kotlinlang.org)  
 - **IDE**: [Android Studio](https://developer.android.com/studio)  
-- **Backend API**: Powered by [Node.js](https://nodejs.org) and hosted on [Vercel](https://vercel.com)  
-- **Data cache**: [Upstash Redis](https://upstash.com) to speed up responses  
+- **Backend API**: Implemented with [Node.js](https://nodejs.org) and hosted on [Vercel](https://vercel.com)  
+- **Data caching**: [Upstash Redis](https://upstash.com) for faster responses  
 - **Temporary session storage** and daily usage control  
-- **No private APIs**: only public or profile-visible sources are used
+- **No private API access**: only public or visually accessible profile sources are used
 
 > For security reasons, **the API is not public yet**. Access is exclusively limited to the app.
 
 ---
 
-## 📲 Compatibility
+## 🔐 Contributions and Free API Keys
 
-FireLike is currently available as a downloadable APK file:
+If you want to contribute to the project or use the likes functionality, you can get **free API keys** by joining our Discord server. Keys provide:
 
-- ✅ Requires **Android 6.0 (Marshmallow)** or later  
-- ❌ Not available on iOS  
-- 🛠️ Constant updates with stability improvements and new features
+- Controlled and secure use of the likes feature  
+- Direct support and monitoring from the team  
+- Access to upcoming features and exclusive updates
 
----
-
-## 🧪 Is it safe?
-
-Yes. FireLike **does not interact directly with the game** nor modifies the client. All data is obtained through public or visually accessible sources from the player's profile. This guarantees:
-
-- Zero risk of bans for users  
-- Zero client modification  
-- Likes sent from legitimate accounts  
-- Full compliance with Free Fire's terms of use
+[Join our Discord here](https://discord.gg/qB6VNNetrm)
 
 ---
 
-## 📷 Screenshots
+## 🔎 Virus Scan
 
-![](https://firelike.vercel.app/assets/screenshot.png)
+For your peace of mind, the FireLike APK has been scanned by VirusTotal and **contains no viruses or malicious software**.
+
+You can verify it yourself at the following link:
+
+[VirusTotal Verification](https://www.virustotal.com/gui/file-analysis/MTlkOWNlMTNkMzg0MWRiOWY5NjI3ZWQyODhmMDUxYWM6MTc1MzE0ODc2MA==)
 
 ---
 
-Want to contribute or suggest new features? Visit the repository, open an *issue*, or contact me directly.
+## 📱 Required Android Permissions
+
+FireLike requires the following permissions to function properly:
+
+```xml
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
